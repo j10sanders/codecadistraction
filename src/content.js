@@ -23,6 +23,12 @@ const Main = () => {
   );
 };
 
+const distractions = [
+  "https://www.facebook.com/",
+  "https://www.netflix.com/browse",
+  "https://news.ycombinator.com/",
+];
+
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   chrome.storage.local.get("lastValidCompletion", function (result) {
     console.log("Value currently is " + result.lastValidCompletion);
@@ -38,7 +44,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     }
   });
 
-  if (request.tab === "https://developer.chrome.com/extensions/messaging") {
+  if (distractions.includes(request.tab)) {
     const app = document.createElement("div");
     app.id = "my-extension-root";
 

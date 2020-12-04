@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 
-import { FlexGrid, Row, Col, CTAButton, StrokeButton } from "@codecademy/gamut";
+import { CTAButton, StrokeButton } from "@codecademy/gamut";
 import { createEmotionCache, theme } from "@codecademy/gamut-styles";
 import { ThemeProvider, CacheProvider } from "@emotion/react";
 import "./index.scss";
@@ -15,6 +15,26 @@ const Flex = styled.div`
   justify-content: center;
 `;
 
+const Row = styled.div`
+  padding-top: 3rem;
+`;
+
+const Col = styled.div`
+  padding: 1rem;
+  justify-content: center;
+  display: flex;
+`;
+
+const StreakContainer = styled.div`
+  /* background-color: red; */
+  /* background: $color-white; */
+  border-radius: 2px;
+  box-shadow: 0 2px 8px 0 lightgray;
+  padding: 1rem;
+  position: relative; // for easy absolute placement of child elements
+  /* transition: box-shadow $transition-time ease-in; */
+`;
+
 const App = ({ codeLater, setCodeLater }) => {
   return (
     <CacheProvider value={createEmotionCache()}>
@@ -24,9 +44,12 @@ const App = ({ codeLater, setCodeLater }) => {
           style={{ display: `${codeLater ? "none" : "block"}` }}
         >
           <Flex>
-            <Row center="xs">
-              <Col xs="6">Shouldn't you code instead?</Col>
-              <Col xs="6">
+            <Row>
+              <Col style={{ fontSize: "30px" }}>
+                Shouldn't you code instead?
+              </Col>
+              <StreakContainer>This is the steak container</StreakContainer>
+              <Col>
                 <StrokeButton
                   mode="light"
                   onClick={() => setCodeLater(!codeLater)}
@@ -34,7 +57,7 @@ const App = ({ codeLater, setCodeLater }) => {
                   I'll code later
                 </StrokeButton>
               </Col>
-              <Col xs="6">
+              <Col>
                 <CTAButton href="https://codecademy.com/learn" mode="light">
                   Code First :)
                 </CTAButton>
