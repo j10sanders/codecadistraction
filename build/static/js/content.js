@@ -38746,7 +38746,7 @@ tags.forEach(function (tagName) {
 /* harmony default export */ var emotion_styled_browser_esm = (newStyled);
 
 // CONCATENATED MODULE: ./src/App.js
-function _templateObject(){var data=_taggedTemplateLiteral(["\n  display: flex;\n  background-color: red;\n"]);_templateObject=function _templateObject(){return data;};return data;}/*global chrome*/var Flex=emotion_styled_browser_esm.div(_templateObject());var App_App=function App(_ref){var codeLater=_ref.codeLater,setCodeLater=_ref.setCodeLater;return/*#__PURE__*/react_default.a.createElement(emotion_element_5144c041_browser_esm["a" /* C */],{value:Object(dist["b" /* createEmotionCache */])()},/*#__PURE__*/react_default.a.createElement(emotion_element_5144c041_browser_esm["d" /* a */],{theme:dist["f" /* theme */]},/*#__PURE__*/react_default.a.createElement("div",{className:"App",style:{display:"".concat(codeLater?"none":"block")}},/*#__PURE__*/react_default.a.createElement(Flex,null,/*#__PURE__*/react_default.a.createElement(Row_Row,{center:"xs"},/*#__PURE__*/react_default.a.createElement(Col_Col,{xs:"6"},"Test"),/*#__PURE__*/react_default.a.createElement(Col_Col,{xs:"6"},/*#__PURE__*/react_default.a.createElement(StrokeButton_StrokeButton,{mode:"light",onClick:function onClick(){return setCodeLater(!codeLater);}},"I'll code later")),/*#__PURE__*/react_default.a.createElement(Col_Col,{xs:"6"},/*#__PURE__*/react_default.a.createElement(CTAButton_CTAButton,{href:"https://codecademy.com/learn",mode:"light"},"Code First :)")))))));};/* harmony default export */ var src_App_0 = __webpack_exports__["a"] = (App_App);
+function _templateObject(){var data=_taggedTemplateLiteral(["\n  display: flex;\n  justify-content: center;\n"]);_templateObject=function _templateObject(){return data;};return data;}/*global chrome*/var Flex=emotion_styled_browser_esm.div(_templateObject());var App_App=function App(_ref){var codeLater=_ref.codeLater,setCodeLater=_ref.setCodeLater;return/*#__PURE__*/react_default.a.createElement(emotion_element_5144c041_browser_esm["a" /* C */],{value:Object(dist["b" /* createEmotionCache */])()},/*#__PURE__*/react_default.a.createElement(emotion_element_5144c041_browser_esm["d" /* a */],{theme:dist["f" /* theme */]},/*#__PURE__*/react_default.a.createElement("div",{className:"App",style:{display:"".concat(codeLater?"none":"block")}},/*#__PURE__*/react_default.a.createElement(Flex,null,/*#__PURE__*/react_default.a.createElement(Row_Row,{center:"xs"},/*#__PURE__*/react_default.a.createElement(Col_Col,{xs:"6"},"Shouldn't you code instead?"),/*#__PURE__*/react_default.a.createElement(Col_Col,{xs:"6"},/*#__PURE__*/react_default.a.createElement(StrokeButton_StrokeButton,{mode:"light",onClick:function onClick(){return setCodeLater(!codeLater);}},"I'll code later")),/*#__PURE__*/react_default.a.createElement(Col_Col,{xs:"6"},/*#__PURE__*/react_default.a.createElement(CTAButton_CTAButton,{href:"https://codecademy.com/learn",mode:"light"},"Code First :)")))))));};/* harmony default export */ var src_App_0 = __webpack_exports__["a"] = (App_App);
 
 /***/ }),
 /* 31 */
@@ -40252,6 +40252,47 @@ module.exports = __webpack_require__(47);
 // ESM COMPAT FLAG
 __webpack_require__.r(__webpack_exports__);
 
+// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
+// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+}
+// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/iterableToArray.js
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
+}
+// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(n);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/nonIterableSpread.js
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/toConsumableArray.js
+
+
+
+
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+}
 // CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/arrayWithHoles.js
 function _arrayWithHoles(arr) {
   if (Array.isArray(arr)) return arr;
@@ -40283,26 +40324,6 @@ function _iterableToArrayLimit(arr, i) {
 
   return _arr;
 }
-// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
-
-  return arr2;
-}
-// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js
-
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(n);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
-}
 // CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/nonIterableRest.js
 function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
@@ -40327,7 +40348,12 @@ var react_dom_default = /*#__PURE__*/__webpack_require__.n(react_dom);
 var App = __webpack_require__(30);
 
 // CONCATENATED MODULE: ./src/content.js
-/*global chrome*/ /* src/content.js */var content_Main=function Main(){var _useState=Object(react["useState"])(false),_useState2=_slicedToArray(_useState,2),codeLater=_useState2[0],setCodeLater=_useState2[1];Object(react["useEffect"])(function(){if(codeLater)document.getElementById("my-extension-root").setAttribute("style","display: none;");},[codeLater]);return/*#__PURE__*/react_default.a.createElement(App["a" /* default */],{document:document,window:window,isExt:true,codeLater:codeLater,setCodeLater:setCodeLater});};chrome.runtime.onMessage.addListener(function(request,sender,sendResponse){chrome.storage.local.get("lastValidCompletion",function(result){console.log("Value currently is "+result.lastValidCompletion);if(new Date(result.lastValidCompletion)<new Date(new Date().toDateString())){console.log("EARLEIR THAN TODAY");}else{console.log(new Date(result.lastValidCompletion)<new Date(new Date().toDateString()));}});if(request.tab==="https://developer.chrome.com/extensions/messaging"){var app=document.createElement("div");app.id="my-extension-root";document.body.appendChild(app);react_dom_default.a.render(/*#__PURE__*/react_default.a.createElement(content_Main,null),app);chrome.storage.local.get("lastValidCompletion",function(result){console.log("Value currently is "+result.lastValidCompletion);if(new Date(result.lastValidCompletion)<=new Date(new Date().toDateString())){console.log("EARLEIR THAN TODAY");}else{console.log(new Date(result.lastValidCompletion)<new Date(new Date().toDateString()));}});}if(request.tab==="https://www.codecademy.com/learn"&&parseInt(document.getElementById("target-counter").firstElementChild.textContent)>0){chrome.storage.local.set({lastValidCompletion:new Date().toDateString()},function(){console.log("Value is set to "+new Date());});}console.log(request.greeting,"GREETING");console.log(request,"REQUESRT");});
+/*global chrome*/ /* src/content.js */var content_Main=function Main(){var _useState=Object(react["useState"])(false),_useState2=_slicedToArray(_useState,2),codeLater=_useState2[0],setCodeLater=_useState2[1];Object(react["useEffect"])(function(){if(codeLater)document.getElementById("my-extension-root").setAttribute("style","display: none;");},[codeLater]);return/*#__PURE__*/react_default.a.createElement(App["a" /* default */],{document:document,window:window,isExt:true,codeLater:codeLater,setCodeLater:setCodeLater});};chrome.runtime.onMessage.addListener(function(request,sender,sendResponse){chrome.storage.local.get("lastValidCompletion",function(result){console.log("Value currently is "+result.lastValidCompletion);if(new Date(result.lastValidCompletion)<new Date(new Date().toDateString())){console.log("EARLEIR THAN TODAY");}else{console.log(new Date(result.lastValidCompletion)<new Date(new Date().toDateString()));}});if(request.tab==="https://developer.chrome.com/extensions/messaging"){var app=document.createElement("div");app.id="my-extension-root";document.body.appendChild(app);react_dom_default.a.render(/*#__PURE__*/react_default.a.createElement(content_Main,null),app);chrome.storage.local.get("lastValidCompletion",function(result){console.log("Value currently is "+result.lastValidCompletion);if(new Date(result.lastValidCompletion)<=new Date(new Date().toDateString())){console.log("EARLEIR THAN TODAY");}else{console.log(new Date(result.lastValidCompletion)<new Date(new Date().toDateString()));}});if(request.tab==="https://www.codecademy.com/learn"){// Use to convert .getDay's return number to match the index in listed days (everything's off by 1 since .getDay() has Sunday as 0)
+console.log("AT CODECADEMY");var daysToIndices={0:6,1:0,2:1,3:2,4:3,5:4,6:5};var weekEl=document.getElementById("target-week");var dayEls=_toConsumableArray(weekEl.children);var today=new Date().getDay();var streakIndicator=dayEls[daysToIndices[today]].ariaLabel;// document.getElementById('target-counter')​
+// let vals = document.getElementById('target-counter').children
+// vals[0].innerHTML
+// vals[1].innerHTML.match(/\d/)[0]
+if(streakIndicator!==""){chrome.storage.local.set({lastValidCompletion:new Date().toDateString()},function(){console.log("Value is set to "+new Date());});}}console.log(request.greeting,"GREETING");console.log(request,"REQUESRT");}});
 
 /***/ })
 /******/ ]);

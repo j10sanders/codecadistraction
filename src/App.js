@@ -12,7 +12,7 @@ import styled from "@emotion/styled";
 
 const Flex = styled.div`
   display: flex;
-  background-color: red;
+  justify-content: center;
 `;
 
 const App = ({ codeLater, setCodeLater }) => {
@@ -25,7 +25,7 @@ const App = ({ codeLater, setCodeLater }) => {
         >
           <Flex>
             <Row center="xs">
-              <Col xs="6">Test</Col>
+              <Col xs="6">Shouldn't you code instead?</Col>
               <Col xs="6">
                 <StrokeButton
                   mode="light"
