@@ -5,6 +5,7 @@ import React, { useState } from "react";
 import { CTAButton, StrokeButton } from "@codecademy/gamut";
 import { createEmotionCache, theme } from "@codecademy/gamut-styles";
 import { ThemeProvider, CacheProvider } from "@emotion/react";
+import Streak from "./streak.png";
 import "./index.scss";
 import "./App.css";
 
@@ -19,6 +20,11 @@ const Row = styled.div`
   padding-top: 3rem;
 `;
 
+const BottomRow = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 const Col = styled.div`
   padding: 1rem;
   justify-content: center;
@@ -26,13 +32,16 @@ const Col = styled.div`
 `;
 
 const StreakContainer = styled.div`
-  /* background-color: red; */
-  /* background: $color-white; */
-  border-radius: 2px;
-  box-shadow: 0 2px 8px 0 lightgray;
+  /* border-radius: 2px; */
+  /* box-shadow: 0 2px 8px 0 lightgray; */
   padding: 1rem;
+  justify-content: center;
+  display: flex;
   position: relative; // for easy absolute placement of child elements
-  /* transition: box-shadow $transition-time ease-in; */
+`;
+
+const TopHalf = styled.div`
+  background-color: #381f73;
 `;
 
 const App = ({ codeLater, setCodeLater, data }) => {
@@ -45,12 +54,14 @@ const App = ({ codeLater, setCodeLater, data }) => {
       3: "Wednesday",
       4: "Thursday",
       5: "Friday",
-      6: "Saturday"
-    }
+      6: "Saturday",
+    };
 
-    const message = daysCompleted.length ? 
-      `The last day you completed was ${daysSpelled[daysCompleted[daysCompleted.length -1]]}.` :
-      "Looks like you haven't started your streak this week."
+    const message = daysCompleted.length
+      ? `You haven't coded since ${
+          daysSpelled[daysCompleted[daysCompleted.length - 1]]
+        }.`
+      : "Looks like you haven't started your streak this week.";
     return <>{message}</>;
   };
   console.log(data, "data");
@@ -61,12 +72,20 @@ const App = ({ codeLater, setCodeLater, data }) => {
           className="App"
           style={{ display: `${codeLater ? "none" : "block"}` }}
         >
-          <Flex>
-            <Row>
-              <Col style={{ fontSize: "30px" }}>
-                Shouldn't you code instead?
-              </Col>
-              <StreakContainer>{formatData()}</StreakContainer>
+          <TopHalf>
+            <Flex>
+              <Row>
+                <Col style={{ fontSize: "24px", color: "white" }}>
+                  {formatData()}
+                </Col>
+                <StreakContainer>
+                  <img src={Streak} alt="streak" />
+                </StreakContainer>
+              </Row>
+            </Flex>
+          </TopHalf>
+          <div style={{ paddingTop: "1rem" }}>
+            <BottomRow>
               <Col>
                 <StrokeButton
                   mode="light"
@@ -77,11 +96,11 @@ const App = ({ codeLater, setCodeLater, data }) => {
               </Col>
               <Col>
                 <CTAButton href="https://codecademy.com/learn" mode="light">
-                  Code First :)
+                  I'll Code First ❤️
                 </CTAButton>
               </Col>
-            </Row>
-          </Flex>
+            </BottomRow>
+          </div>
         </div>
       </ThemeProvider>
     </CacheProvider>
