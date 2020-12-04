@@ -65,7 +65,7 @@ const App = ({ codeLater, setCodeLater, data }) => {
               </Col>
               <Col>
                 <CTAButton href="https://codecademy.com/learn" mode="light">
-                  Code First :)
+                  I'll Code First ❤️
                 </CTAButton>
               </Col>
             </Row>
