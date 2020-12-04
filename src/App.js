@@ -2,14 +2,40 @@
 
 import React, { useState } from "react";
 
-import { FlexGrid, Row, Col, CTAButton, StrokeButton } from "@codecademy/gamut";
+import { CTAButton, StrokeButton } from "@codecademy/gamut";
 import { createEmotionCache, theme } from "@codecademy/gamut-styles";
 import { ThemeProvider, CacheProvider } from "@emotion/react";
 import "./index.scss";
 import "./App.css";
 
-const App = ({ toggle }) => {
-  const [codeLater, setCodeLater] = useState();
+import styled from "@emotion/styled";
+
+const Flex = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const Row = styled.div`
+  padding-top: 3rem;
+`;
+
+const Col = styled.div`
+  padding: 1rem;
+  justify-content: center;
+  display: flex;
+`;
+
+const StreakContainer = styled.div`
+  /* background-color: red; */
+  /* background: $color-white; */
+  border-radius: 2px;
+  box-shadow: 0 2px 8px 0 lightgray;
+  padding: 1rem;
+  position: relative; // for easy absolute placement of child elements
+  /* transition: box-shadow $transition-time ease-in; */
+`;
+
+const App = ({ codeLater, setCodeLater }) => {
   return (
     <CacheProvider value={createEmotionCache()}>
       <ThemeProvider theme={theme}>
@@ -17,10 +43,13 @@ const App = ({ toggle }) => {
           className="App"
           style={{ display: `${codeLater ? "none" : "block"}` }}
         >
-          <FlexGrid fluid>
-            <Row center="xs">
-              <Col xs="6">Test</Col>
-              <Col xs="6">
+          <Flex>
+            <Row>
+              <Col style={{ fontSize: "30px" }}>
+                Shouldn't you code instead?
+              </Col>
+              <StreakContainer>This is the steak container</StreakContainer>
+              <Col>
                 <StrokeButton
                   mode="light"
                   onClick={() => setCodeLater(!codeLater)}
@@ -28,13 +57,13 @@ const App = ({ toggle }) => {
                   I'll code later
                 </StrokeButton>
               </Col>
-              <Col xs="6">
+              <Col>
                 <CTAButton href="https://codecademy.com/learn" mode="light">
                   Code First :)
                 </CTAButton>
               </Col>
             </Row>
-          </FlexGrid>
+          </Flex>
         </div>
       </ThemeProvider>
     </CacheProvider>
