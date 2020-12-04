@@ -79,22 +79,57 @@ ReactDOM.render(<Main />, app);
 app.style.display = "none";
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  if (request.message === "clicked_browser_action") {
-    // toggle();
-  }
+  // if (request.message === "clicked_browser_action") {
+  //   // toggle();
+  // }
+  chrome.storage.local.get("lastValidCompletion", function (result) {
+    console.log("Value currently is " + result.lastValidCompletion);
+    if (
+      new Date(result.lastValidCompletion) < new Date(new Date().toDateString())
+    ) {
+      console.log("EARLEIR THAN TODAY");
+      toggle();
+    } else {
+      console.log(
+        new Date(result.lastValidCompletion) <
+          new Date(new Date().toDateString())
+      );
+    }
+  });
+
   if (request.tab === "https://developer.chrome.com/extensions/messaging")
-    toggle();
+    chrome.storage.local.get("lastValidCompletion", function (result) {
+      console.log("Value currently is " + result.lastValidCompletion);
+      if (
+        new Date(result.lastValidCompletion) <
+        new Date(new Date().toDateString())
+      ) {
+        console.log("EARLEIR THAN TODAY");
+        toggle();
+      } else {
+        console.log(
+          new Date(result.lastValidCompletion) <
+            new Date(new Date().toDateString())
+        );
+      }
+    });
+
+  if (
+    request.tab === "https://www.codecademy.com/learn" &&
+    parseInt(
+      document.getElementById("target-counter").firstElementChild.textContent
+    ) > 0
+  ) {
+    chrome.storage.local.set(
+      { lastValidCompletion: new Date().toDateString() },
+      function () {
+        console.log("Value is set to " + new Date());
+      }
+    );
+  }
   console.log(request.greeting, "GREETING");
   console.log(request, "REQUESRT");
 });
-
-// chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-//   console.log(
-//     sender.tab
-//       ? "from a content script:" + sender.tab.url
-//       : "from the extension"
-//   );
-// });
 
 function toggle() {
   if (app.style.display === "none") {

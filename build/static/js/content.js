@@ -2204,15 +2204,10 @@ var Main=function Main(){// const [display, setDisplay] = useState("block");
 // });
 return/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_frame_component__WEBPACK_IMPORTED_MODULE_2___default.a// style={{ display: display }}
 ,{head:[/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link",{type:"text/css",rel:"stylesheet",href:chrome.runtime.getURL("/static/css/content.css")})]},/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_frame_component__WEBPACK_IMPORTED_MODULE_2__["FrameContextConsumer"],null,function(_ref){var document=_ref.document,window=_ref.window;return/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{document:document,window:window,isExt:true// style={{ display: display }}
-});}));};var app=document.createElement("div");app.id="my-extension-root";document.body.appendChild(app);react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Main,null),app);app.style.display="none";chrome.runtime.onMessage.addListener(function(request,sender,sendResponse){if(request.message==="clicked_browser_action"){// toggle();
-}if(request.tab==="https://developer.chrome.com/extensions/messaging")toggle();console.log(request.greeting,"GREETING");console.log(request,"REQUESRT");});// chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-//   console.log(
-//     sender.tab
-//       ? "from a content script:" + sender.tab.url
-//       : "from the extension"
-//   );
-// });
-function toggle(){if(app.style.display==="none"){app.style.display="block";}else{app.style.display="none";}}
+});}));};var app=document.createElement("div");app.id="my-extension-root";document.body.appendChild(app);react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Main,null),app);app.style.display="none";chrome.runtime.onMessage.addListener(function(request,sender,sendResponse){// if (request.message === "clicked_browser_action") {
+//   // toggle();
+// }
+chrome.storage.local.get("lastValidCompletion",function(result){console.log("Value currently is "+result.lastValidCompletion);if(new Date(result.lastValidCompletion)<new Date(new Date().toDateString())){console.log("EARLEIR THAN TODAY");toggle();}else{console.log(new Date(result.lastValidCompletion)<new Date(new Date().toDateString()));}});if(request.tab==="https://developer.chrome.com/extensions/messaging")chrome.storage.local.get("lastValidCompletion",function(result){console.log("Value currently is "+result.lastValidCompletion);if(new Date(result.lastValidCompletion)<new Date(new Date().toDateString())){console.log("EARLEIR THAN TODAY");toggle();}else{console.log(new Date(result.lastValidCompletion)<new Date(new Date().toDateString()));}});if(request.tab==="https://www.codecademy.com/learn"&&parseInt(document.getElementById("target-counter").firstElementChild.textContent)>0){chrome.storage.local.set({lastValidCompletion:new Date().toDateString()},function(){console.log("Value is set to "+new Date());});}console.log(request.greeting,"GREETING");console.log(request,"REQUESRT");});function toggle(){if(app.style.display==="none"){app.style.display="block";}else{app.style.display="none";}}
 
 /***/ }),
 /* 22 */
