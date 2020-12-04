@@ -2,44 +2,34 @@
 /* src/content.js */
 import React, { useEffect, useState } from "react";
 import ReactDOM from "react-dom";
-import Frame, { FrameContextConsumer } from "react-frame-component";
 import App from "./App";
 
 const Main = () => {
+  const [codeLater, setCodeLater] = useState(false);
+  useEffect(() => {
+    if (codeLater)
+      document
+        .getElementById("my-extension-root")
+        .setAttribute("style", "display: none;");
+  }, [codeLater]);
   return (
-    // <Frame
-    //   head={[
-    //     <link
-    //       type="text/css"
-    //       rel="stylesheet"
-    //       href={chrome.runtime.getURL("/static/css/content.css")}
-    //     ></link>,
-    //   ]}
-    // >
-    // <FrameContextConsumer>
-    //   {({ document, window }) => {
-    // return (
-    <App document={document} window={window} isExt={true} toggle={() => {}} />
+    <App
+      document={document}
+      window={window}
+      isExt={true}
+      codeLater={codeLater}
+      setCodeLater={setCodeLater}
+    />
   );
-  //     }}
-  //   </FrameContextConsumer>
-  // </Frame>
-  // );
 };
 
-// app.style.display = "block";
-
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  // if (request.message === "clicked_browser_action") {
-  //   // toggle();
-  // }
   chrome.storage.local.get("lastValidCompletion", function (result) {
     console.log("Value currently is " + result.lastValidCompletion);
     if (
       new Date(result.lastValidCompletion) < new Date(new Date().toDateString())
     ) {
       console.log("EARLEIR THAN TODAY");
-      // toggle();
     } else {
       console.log(
         new Date(result.lastValidCompletion) <
@@ -61,7 +51,6 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
         new Date(new Date().toDateString())
       ) {
         console.log("EARLEIR THAN TODAY");
-        // toggle();
       } else {
         console.log(
           new Date(result.lastValidCompletion) <
@@ -87,11 +76,3 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   console.log(request.greeting, "GREETING");
   console.log(request, "REQUESRT");
 });
-
-// function toggle() {
-//   if (app.style.display === "none") {
-//     app.style.display = "block";
-//   } else {
-//     app.style.display = "none";
-//   }
-// }

@@ -8,8 +8,14 @@ import { ThemeProvider, CacheProvider } from "@emotion/react";
 import "./index.scss";
 import "./App.css";
 
-const App = ({ toggle }) => {
-  const [codeLater, setCodeLater] = useState();
+import styled from "@emotion/styled";
+
+const Flex = styled.div`
+  display: flex;
+  background-color: red;
+`;
+
+const App = ({ codeLater, setCodeLater }) => {
   return (
     <CacheProvider value={createEmotionCache()}>
       <ThemeProvider theme={theme}>
@@ -17,7 +23,7 @@ const App = ({ toggle }) => {
           className="App"
           style={{ display: `${codeLater ? "none" : "block"}` }}
         >
-          <FlexGrid fluid>
+          <Flex>
             <Row center="xs">
               <Col xs="6">Test</Col>
               <Col xs="6">
@@ -34,7 +40,7 @@ const App = ({ toggle }) => {
                 </CTAButton>
               </Col>
             </Row>
-          </FlexGrid>
+          </Flex>
         </div>
       </ThemeProvider>
     </CacheProvider>
