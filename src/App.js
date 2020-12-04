@@ -35,7 +35,13 @@ const StreakContainer = styled.div`
   /* transition: box-shadow $transition-time ease-in; */
 `;
 
-const App = ({ codeLater, setCodeLater }) => {
+const App = ({ codeLater, setCodeLater, data }) => {
+  const formatData = () => {
+    const { daysCompleted, weeklyStreakCompleted } = data;
+
+    return <>The last day you completed was {daysCompleted[0]}</>;
+  };
+  console.log(data, "data");
   return (
     <CacheProvider value={createEmotionCache()}>
       <ThemeProvider theme={theme}>
@@ -48,7 +54,7 @@ const App = ({ codeLater, setCodeLater }) => {
               <Col style={{ fontSize: "30px" }}>
                 Shouldn't you code instead?
               </Col>
-              <StreakContainer>This is the steak container</StreakContainer>
+              <StreakContainer>{formatData()}</StreakContainer>
               <Col>
                 <StrokeButton
                   mode="light"
