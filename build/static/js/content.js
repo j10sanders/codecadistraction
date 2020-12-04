@@ -583,7 +583,7 @@ var react_default = /*#__PURE__*/__webpack_require__.n(react);
 var src_App = __webpack_require__(15);
 
 // CONCATENATED MODULE: ./src/App.js
-/*global chrome*/var App_App=/*#__PURE__*/function(_Component){_inherits(App,_Component);var _super=_createSuper(App);function App(){_classCallCheck(this,App);return _super.apply(this,arguments);}_createClass(App,[{key:"render",value:function render(){return/*#__PURE__*/react_default.a.createElement("div",{className:"App"},/*#__PURE__*/react_default.a.createElement("header",{className:"App-header"},this.props.isExt?/*#__PURE__*/react_default.a.createElement("img",{src:chrome.runtime.getURL("static/media/logo.svg"),className:"App-logo",alt:"logo"}):/*#__PURE__*/react_default.a.createElement("img",{src:logo,className:"App-logo",alt:"logo"}),/*#__PURE__*/react_default.a.createElement("h1",{className:"App-title"},"Hola")),/*#__PURE__*/react_default.a.createElement("p",{className:"App-intro"},"Hola"));}}]);return App;}(react["Component"]);/* harmony default export */ var src_App_0 = __webpack_exports__["a"] = (App_App);
+/*global chrome*/var App_App=/*#__PURE__*/function(_Component){_inherits(App,_Component);var _super=_createSuper(App);function App(){_classCallCheck(this,App);return _super.apply(this,arguments);}_createClass(App,[{key:"render",value:function render(){return/*#__PURE__*/react_default.a.createElement("div",{className:"App"},/*#__PURE__*/react_default.a.createElement("header",{className:"App-header"},this.props.isExt?/*#__PURE__*/react_default.a.createElement("img",{src:chrome.runtime.getURL("static/media/logo.svg"),className:"App-logo",alt:"logo"}):/*#__PURE__*/react_default.a.createElement("img",{src:logo,className:"App-logo",alt:"logo"}),/*#__PURE__*/react_default.a.createElement("h1",{className:"App-title"},"Codecadistraction")),/*#__PURE__*/react_default.a.createElement("h2",{className:"App-intro"},"Have you coded today?"),/*#__PURE__*/react_default.a.createElement("div",null,/*#__PURE__*/react_default.a.createElement("p",null,"Streak goes here"),/*#__PURE__*/react_default.a.createElement("button",null,"Let me be bad..."),/*#__PURE__*/react_default.a.createElement("button",null,/*#__PURE__*/react_default.a.createElement("a",{href:"https://www.codecademy.com/learn",target:"_blank"},"Code first"))));}}]);return App;}(react["Component"]);/* harmony default export */ var src_App_0 = __webpack_exports__["a"] = (App_App);
 
 /***/ }),
 /* 5 */
@@ -2084,7 +2084,7 @@ Object.defineProperty(exports, 'FrameContextConsumer', {
   }
 });
 
-var _Frame = __webpack_require__(22);
+var _Frame = __webpack_require__(21);
 
 var _Frame2 = _interopRequireDefault(_Frame);
 
@@ -2140,7 +2140,7 @@ exports.FrameContextConsumer = FrameContextConsumer;
 if (false) { var throwOnDirectAccess, ReactIs; } else {
   // By explicitly using `prop-types` you are opting into new production behavior.
   // http://fb.me/prop-types-in-prod
-  module.exports = __webpack_require__(23)();
+  module.exports = __webpack_require__(22)();
 }
 
 
@@ -2150,67 +2150,11 @@ if (false) { var throwOnDirectAccess, ReactIs; } else {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(5);
-module.exports = __webpack_require__(21);
+module.exports = __webpack_require__(25);
 
 
 /***/ }),
 /* 21 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(0);
-/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(1);
-/* harmony import */ var react_dom__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react_dom__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var react_frame_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(16);
-/* harmony import */ var react_frame_component__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_frame_component__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var _App__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(4);
-/*global chrome*/ /* src/content.js */// export const getCurrentTabUrl = (callback) => {
-//   console.log("tab");
-//   const queryInfo = { active: true, lastFocusedWindow: true };
-//   console.log(chrome.tabs, "chrome.tabs", chrome);
-//   chrome.tabs &&
-//     chrome.tabs.query(queryInfo, (tabs) => {
-//       console.log(tabs[0], "tabs of 0");
-//       callback(tabs[0].url);
-//     });
-// };
-var Main=function Main(){// const [display, setDisplay] = useState("block");
-// useEffect(() => {
-//   console.log("effect");
-//   getCurrentTabUrl((url) => {
-//     // setUrl(url || "undefined");
-//     console.log(url, "URL");
-//     if (url === "https://www.netflix.com/browse") {
-//       console.log("IT IS NETFLIX");
-//       setDisplay("block");
-//       // chrome.tabs.update({ url: "https://codecademy.com" });
-//     }
-//   });
-// }, []);
-// chrome.runtime.onMessage.addListener(function (
-//   request,
-//   sender,
-//   sendResponse
-// ) {
-//   console.log(
-//     sender.tab
-//       ? "from a content script:" + sender.tab.url
-//       : "from the extension"
-//   );
-//   // if (request.url == "hello") sendResponse({ farewell: "goodbye" });
-//   console.log(request, "REQWUREHILUFAIHLUAEHGIUY");
-// });
-return/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_frame_component__WEBPACK_IMPORTED_MODULE_2___default.a// style={{ display: display }}
-,{head:[/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("link",{type:"text/css",rel:"stylesheet",href:chrome.runtime.getURL("/static/css/content.css")})]},/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(react_frame_component__WEBPACK_IMPORTED_MODULE_2__["FrameContextConsumer"],null,function(_ref){var document=_ref.document,window=_ref.window;return/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(_App__WEBPACK_IMPORTED_MODULE_3__[/* default */ "a"],{document:document,window:window,isExt:true// style={{ display: display }}
-});}));};var app=document.createElement("div");app.id="my-extension-root";document.body.appendChild(app);react_dom__WEBPACK_IMPORTED_MODULE_1___default.a.render(/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement(Main,null),app);app.style.display="none";chrome.runtime.onMessage.addListener(function(request,sender,sendResponse){// if (request.message === "clicked_browser_action") {
-//   // toggle();
-// }
-chrome.storage.local.get("lastValidCompletion",function(result){console.log("Value currently is "+result.lastValidCompletion);if(new Date(result.lastValidCompletion)<new Date(new Date().toDateString())){console.log("EARLEIR THAN TODAY");toggle();}else{console.log(new Date(result.lastValidCompletion)<new Date(new Date().toDateString()));}});if(request.tab==="https://developer.chrome.com/extensions/messaging")chrome.storage.local.get("lastValidCompletion",function(result){console.log("Value currently is "+result.lastValidCompletion);if(new Date(result.lastValidCompletion)<new Date(new Date().toDateString())){console.log("EARLEIR THAN TODAY");toggle();}else{console.log(new Date(result.lastValidCompletion)<new Date(new Date().toDateString()));}});if(request.tab==="https://www.codecademy.com/learn"&&parseInt(document.getElementById("target-counter").firstElementChild.textContent)>0){chrome.storage.local.set({lastValidCompletion:new Date().toDateString()},function(){console.log("Value is set to "+new Date());});}console.log(request.greeting,"GREETING");console.log(request,"REQUESRT");});function toggle(){if(app.style.display==="none"){app.style.display="block";}else{app.style.display="none";}}
-
-/***/ }),
-/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2238,7 +2182,7 @@ var _propTypes2 = _interopRequireDefault(_propTypes);
 
 var _Context = __webpack_require__(17);
 
-var _Content = __webpack_require__(25);
+var _Content = __webpack_require__(24);
 
 var _Content2 = _interopRequireDefault(_Content);
 
@@ -2396,7 +2340,7 @@ Frame.defaultProps = {
 exports.default = Frame;
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2409,7 +2353,7 @@ exports.default = Frame;
 
 
 
-var ReactPropTypesSecret = __webpack_require__(24);
+var ReactPropTypesSecret = __webpack_require__(23);
 
 function emptyFunction() {}
 function emptyFunctionWithReset() {}
@@ -2467,7 +2411,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2486,7 +2430,7 @@ module.exports = ReactPropTypesSecret;
 
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2550,6 +2494,77 @@ Content.propTypes = {
   contentDidUpdate: _propTypes2.default.func.isRequired
 };
 exports.default = Content;
+
+/***/ }),
+/* 25 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+// ESM COMPAT FLAG
+__webpack_require__.r(__webpack_exports__);
+
+// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/arrayLikeToArray.js
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
+
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
+
+  return arr2;
+}
+// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/arrayWithoutHoles.js
+
+function _arrayWithoutHoles(arr) {
+  if (Array.isArray(arr)) return _arrayLikeToArray(arr);
+}
+// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/iterableToArray.js
+function _iterableToArray(iter) {
+  if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);
+}
+// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/unsupportedIterableToArray.js
+
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(n);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
+// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/nonIterableSpread.js
+function _nonIterableSpread() {
+  throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
+// CONCATENATED MODULE: ./node_modules/babel-preset-react-app/node_modules/@babel/runtime/helpers/esm/toConsumableArray.js
+
+
+
+
+function _toConsumableArray(arr) {
+  return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();
+}
+// EXTERNAL MODULE: ./node_modules/react/index.js
+var react = __webpack_require__(0);
+var react_default = /*#__PURE__*/__webpack_require__.n(react);
+
+// EXTERNAL MODULE: ./node_modules/react-dom/index.js
+var react_dom = __webpack_require__(1);
+var react_dom_default = /*#__PURE__*/__webpack_require__.n(react_dom);
+
+// EXTERNAL MODULE: ./node_modules/react-frame-component/lib/index.js
+var lib = __webpack_require__(16);
+var lib_default = /*#__PURE__*/__webpack_require__.n(lib);
+
+// EXTERNAL MODULE: ./src/App.js + 11 modules
+var App = __webpack_require__(4);
+
+// CONCATENATED MODULE: ./src/content.js
+/*global chrome*/ /* src/content.js */var content_Main=function Main(){return/*#__PURE__*/react_default.a.createElement(lib_default.a,{head:[/*#__PURE__*/react_default.a.createElement("link",{type:"text/css",rel:"stylesheet",href:chrome.runtime.getURL("/static/css/content.css")})]},/*#__PURE__*/react_default.a.createElement(lib["FrameContextConsumer"],null,function(_ref){var document=_ref.document,window=_ref.window;return/*#__PURE__*/react_default.a.createElement(App["a" /* default */],{document:document,window:window,isExt:true});}));};var app=document.createElement("div");app.id="my-extension-root";document.body.appendChild(app);react_dom_default.a.render(/*#__PURE__*/react_default.a.createElement(content_Main,null),app);app.style.display="none";chrome.runtime.onMessage.addListener(function(request,sender,sendResponse){// if (request.message === "clicked_browser_action") {
+//   // toggle();
+// }
+chrome.storage.local.get("lastValidCompletion",function(result){console.log("Value currently is "+result.lastValidCompletion);if(new Date(result.lastValidCompletion)<new Date(new Date().toDateString())){console.log("EARLEIR THAN TODAY");toggle();}else{console.log(new Date(result.lastValidCompletion)<new Date(new Date().toDateString()));}});if(request.tab==="https://developer.chrome.com/extensions/messaging")chrome.storage.local.get("lastValidCompletion",function(result){console.log("Value currently is "+result.lastValidCompletion);if(new Date(result.lastValidCompletion)<new Date(new Date().toDateString())){console.log("EARLEIR THAN TODAY");toggle();}else{console.log(new Date(result.lastValidCompletion)<new Date(new Date().toDateString()));}});if(request.tab==="https://www.codecademy.com/learn"){// Use to convert .getDay's return number to match the index in listed days (everything's off by 1 since .getDay() has Sunday as 0)
+console.log('AT CODECADEMY');var daysToIndices={0:6,1:0,2:1,3:2,4:3,5:4,6:5};var weekEl=document.getElementById('target-week');var dayEls=_toConsumableArray(weekEl.children);var today=new Date().getDay();var streakIndicator=dayEls[daysToIndices[today]].ariaLabel;if(streakIndicator!==""){chrome.storage.local.set({lastValidCompletion:new Date().toDateString()},function(){console.log("Value is set to "+new Date());});}}console.log(request.greeting,"GREETING");console.log(request,"REQUESRT");});function toggle(){if(app.style.display==="none"){app.style.display="block";}else{app.style.display="none";}}
 
 /***/ })
 /******/ ]);
