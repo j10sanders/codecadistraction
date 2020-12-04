@@ -38,8 +38,20 @@ const StreakContainer = styled.div`
 const App = ({ codeLater, setCodeLater, data }) => {
   const formatData = () => {
     const { daysCompleted, weeklyStreakCompleted } = data;
+    const daysSpelled = {
+      0: "Sunday",
+      1: "Monday",
+      2: "Tuesday",
+      3: "Wednesday",
+      4: "Thursday",
+      5: "Friday",
+      6: "Saturday"
+    }
 
-    return <>The last day you completed was {daysCompleted[0]}</>;
+    const message = daysCompleted.length ? 
+      `The last day you completed was ${daysSpelled[daysCompleted[daysCompleted.length -1]]}.` :
+      "Looks like you haven't started your streak this week."
+    return <>{message}</>;
   };
   console.log(data, "data");
   return (
