@@ -1,30 +1,41 @@
 /*global chrome*/
 
-import React, { Component } from "react";
-import logo from "./logo.svg";
+import React, { useState } from "react";
+
+import { FlexGrid, Row, Col, CTAButton, StrokeButton } from "@codecademy/gamut";
+import { createEmotionCache, theme } from "@codecademy/gamut-styles";
+import { ThemeProvider, CacheProvider } from "@emotion/react";
+import "./index.scss";
 import "./App.css";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          {this.props.isExt ? (
-            <img
-              src={chrome.runtime.getURL("static/media/logo.svg")}
-              className="App-logo"
-              alt="logo"
-            />
-          ) : (
-            <img src={logo} className="App-logo" alt="logo" />
-          )}
-
-          <h1 className="App-title">Hola</h1>
-        </header>
-        <p className="App-intro">Hola</p>
-      </div>
-    );
-  }
-}
+const App = ({ toggle }) => {
+  const [codeLater, setCodeLater] = useState();
+  return (
+    <CacheProvider value={createEmotionCache()}>
+      <ThemeProvider theme={theme}>
+        <div
+          className="App"
+          style={{ display: `${codeLater ? "none" : "block"}` }}
+        >
+          <FlexGrid fluid>
+            <Row center="xs">
+              <Col xs="6">Test</Col>
+              <Col xs="6">
+                <StrokeButton mode="light" onClick={() => setCodeLater{!codeLater}}>
+                  I'll code later
+                </StrokeButton>
+              </Col>
+              <Col xs="6">
+                <CTAButton href="https://codecademy.com/learn" mode="light">
+                  Code First :)
+                </CTAButton>
+              </Col>
+            </Row>
+          </FlexGrid>
+        </div>
+      </ThemeProvider>
+    </CacheProvider>
+  );
+};
 
 export default App;

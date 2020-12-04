@@ -4,6 +4,12 @@
   "private": true,
   "dependencies": {
     "@babel/runtime": "^7.10.4",
+    "@codecademy/gamut": "^19.0.4",
+    "@codecademy/gamut-icons": "^3.11.1",
+    "@codecademy/gamut-styles": "^7.5.0",
+    "@emotion/cache": "^11.0.0",
+    "@emotion/react": "^11.1.1",
+    "@emotion/styled": "^11.0.0",
     "autoprefixer": "^9.8.5",
     "case-sensitive-paths-webpack-plugin": "^2.3.0",
     "chalk": "^4.1.0",
