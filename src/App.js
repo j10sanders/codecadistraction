@@ -21,7 +21,10 @@ const App = ({ toggle }) => {
             <Row center="xs">
               <Col xs="6">Test</Col>
               <Col xs="6">
-                <StrokeButton mode="light" onClick={() => setCodeLater{!codeLater}}>
+                <StrokeButton
+                  mode="light"
+                  onClick={() => setCodeLater(!codeLater)}
+                >
                   I'll code later
                 </StrokeButton>
               </Col>
