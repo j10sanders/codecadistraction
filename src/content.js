@@ -7,31 +7,27 @@ import App from "./App";
 
 const Main = () => {
   return (
-    <Frame
-      head={[
-        <link
-          type="text/css"
-          rel="stylesheet"
-          href={chrome.runtime.getURL("/static/css/content.css")}
-        ></link>,
-      ]}
-    >
-      <FrameContextConsumer>
-        {({ document, window }) => {
-          return <App document={document} window={window} isExt={true} />;
-        }}
-      </FrameContextConsumer>
-    </Frame>
+    // <Frame
+    //   head={[
+    //     <link
+    //       type="text/css"
+    //       rel="stylesheet"
+    //       href={chrome.runtime.getURL("/static/css/content.css")}
+    //     ></link>,
+    //   ]}
+    // >
+    // <FrameContextConsumer>
+    //   {({ document, window }) => {
+    // return (
+    <App document={document} window={window} isExt={true} toggle={() => {}} />
   );
+  //     }}
+  //   </FrameContextConsumer>
+  // </Frame>
+  // );
 };
 
-const app = document.createElement("div");
-app.id = "my-extension-root";
-
-document.body.appendChild(app);
-ReactDOM.render(<Main />, app);
-
-app.style.display = "none";
+// app.style.display = "block";
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   // if (request.message === "clicked_browser_action") {
@@ -43,7 +39,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       new Date(result.lastValidCompletion) < new Date(new Date().toDateString())
     ) {
       console.log("EARLEIR THAN TODAY");
-      toggle();
+      // toggle();
     } else {
       console.log(
         new Date(result.lastValidCompletion) <
@@ -52,15 +48,20 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     }
   });
 
-  if (request.tab === "https://developer.chrome.com/extensions/messaging")
+  if (request.tab === "https://developer.chrome.com/extensions/messaging") {
+    const app = document.createElement("div");
+    app.id = "my-extension-root";
+
+    document.body.appendChild(app);
+    ReactDOM.render(<Main />, app);
     chrome.storage.local.get("lastValidCompletion", function (result) {
       console.log("Value currently is " + result.lastValidCompletion);
       if (
-        new Date(result.lastValidCompletion) <
+        new Date(result.lastValidCompletion) <=
         new Date(new Date().toDateString())
       ) {
         console.log("EARLEIR THAN TODAY");
-        toggle();
+        // toggle();
       } else {
         console.log(
           new Date(result.lastValidCompletion) <
@@ -77,6 +78,12 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
     const today = new Date().getDay()
     let streakIndicator = dayEls[daysToIndices[today]].ariaLabel
     
+    document.getElementById('target-counter')​
+    vals = document.getElementById('target-counter').children
+    vals[0].innerHTML
+    vals[1].innerHTML.match(/\d/)[0]
+
+
     if(streakIndicator !== "") {
       chrome.storage.local.set(
         { lastValidCompletion: new Date().toDateString() },
@@ -88,12 +95,13 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   }
   console.log(request.greeting, "GREETING");
   console.log(request, "REQUESRT");
+  }
 });
 
-function toggle() {
-  if (app.style.display === "none") {
-    app.style.display = "block";
-  } else {
-    app.style.display = "none";
-  }
-}
+// function toggle() {
+//   if (app.style.display === "none") {
+//     app.style.display = "block";
+//   } else {
+//     app.style.display = "none";
+//   }
+// }
