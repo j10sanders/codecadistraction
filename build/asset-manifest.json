@@ -8,5 +8,7 @@
   "content.css.map": "/static/css/content.css.map",
   "content.js.map": "/static/js/content.js.map",
   "index.html": "/index.html",
-  "static/media/logo.svg": "/static/media/logo.svg"
+  "static/media/blueCurve.svg": "/static/media/blueCurve.svg",
+  "static/media/purpleCurveBottomRight.svg": "/static/media/purpleCurveBottomRight.svg",
+  "static/media/purpleCurveTopLeft.svg": "/static/media/purpleCurveTopLeft.svg"
 }

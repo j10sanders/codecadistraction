@@ -1,0 +1,15 @@
+@import "~@codecademy/gamut-styles/utils";
+@import "~@codecademy/gamut-styles/core/reboot";
+@import "~@codecademy/gamut-styles/core/typography";
+
+// @import "@codecademy/gamut-styles/core/.scss";
+
+.App {
+  text-align: center;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
