@@ -7,10 +7,17 @@ import App from "./App";
 const Main = ({ data }) => {
   const [codeLater, setCodeLater] = useState(false);
   useEffect(() => {
-    if (codeLater)
+    if (codeLater) {
+      chrome.storage.local.set(
+        { snoozeTill: new Date().getTime() + 60000 * 60 },
+        function () {
+          console.log("1 minute snooze");
+        }
+      );
       document
         .getElementById("my-extension-root")
         .setAttribute("style", "display: none;");
+    }
   }, [codeLater]);
   return (
     <App
@@ -46,23 +53,30 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
   // });
 
   if (distractions.includes(request.tab)) {
-    chrome.storage.local.get("lastValidCompletion", function (result) {
-      const app = document.createElement("div");
-      app.id = "my-extension-root";
-
-      document.body.appendChild(app);
-      ReactDOM.render(<Main data={result.lastValidCompletion} />, app);
-      console.log("Value currently is " + result.lastValidCompletion);
-      if (
-        new Date(result.lastValidCompletion) <=
-        new Date(new Date().toDateString())
-      ) {
-        console.log("EARLEIR THAN TODAY");
+    chrome.storage.local.get("snoozeTill", function (result) {
+      console.log(result.snoozeTill, new Date(result.snoozeTill) > new Date());
+      if (result.snoozeTill && new Date(result.snoozeTill) > new Date()) {
+        return;
       } else {
-        console.log(
-          new Date(result.lastValidCompletion) <
+        chrome.storage.local.get("lastValidCompletion", function (result) {
+          const app = document.createElement("div");
+          app.id = "my-extension-root";
+
+          document.body.appendChild(app);
+          ReactDOM.render(<Main data={result.lastValidCompletion} />, app);
+          console.log("Value currently is " + result.lastValidCompletion);
+          if (
+            new Date(result.lastValidCompletion) <=
             new Date(new Date().toDateString())
-        );
+          ) {
+            console.log("EARLEIR THAN TODAY");
+          } else {
+            console.log(
+              new Date(result.lastValidCompletion) <
+                new Date(new Date().toDateString())
+            );
+          }
+        });
       }
     });
   }

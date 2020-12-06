@@ -91,7 +91,7 @@ const App = ({ codeLater, setCodeLater, data }) => {
                   mode="light"
                   onClick={() => setCodeLater(!codeLater)}
                 >
-                  I'll code later
+                  Snooze for an hour
                 </StrokeButton>
               </Col>
               <Col>
