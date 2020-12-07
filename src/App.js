@@ -1,6 +1,6 @@
 /*global chrome*/
 
-import React, { useState } from "react";
+import React from "react";
 
 import { CTAButton, StrokeButton } from "@codecademy/gamut";
 import { createEmotionCache, theme } from "@codecademy/gamut-styles";
@@ -61,10 +61,9 @@ const App = ({ codeLater, setCodeLater, data }) => {
       ? `You haven't coded since ${
           daysSpelled[daysCompleted[daysCompleted.length - 1]]
         }.`
-      : "Looks like you haven't started your streak this week.";
+      : "Time to start your streak!";
     return <>{message}</>;
   };
-  console.log(data, "data");
   return (
     <CacheProvider value={createEmotionCache()}>
       <ThemeProvider theme={theme}>

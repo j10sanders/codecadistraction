@@ -9,7 +9,7 @@ const Main = ({ data }) => {
   useEffect(() => {
     if (codeLater) {
       chrome.storage.local.set(
-        { snoozeTill: new Date().getTime() + 60000 * 60 },
+        { snoozeTill: new Date().getTime() + 60000 * 1 },
         function () {
           console.log("1 minute snooze");
         }
@@ -38,43 +38,22 @@ const distractions = [
 ];
 
 chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
-  // chrome.storage.local.get("lastValidCompletion", function (result) {
-  //   console.log("Value currently is " + result.lastValidCompletion);
-  //   if (
-  //     new Date(result.lastValidCompletion) < new Date(new Date().toDateString())
-  //   ) {
-  //     console.log("EARLEIR THAN TODAY");
-  //   } else {
-  //     console.log(
-  //       new Date(result.lastValidCompletion) <
-  //         new Date(new Date().toDateString())
-  //     );
-  //   }
-  // });
-
   if (distractions.includes(request.tab)) {
     chrome.storage.local.get("snoozeTill", function (result) {
-      console.log(result.snoozeTill, new Date(result.snoozeTill) > new Date());
       if (result.snoozeTill && new Date(result.snoozeTill) > new Date()) {
         return;
       } else {
         chrome.storage.local.get("lastValidCompletion", function (result) {
           const app = document.createElement("div");
           app.id = "my-extension-root";
-
-          document.body.appendChild(app);
-          ReactDOM.render(<Main data={result.lastValidCompletion} />, app);
-          console.log("Value currently is " + result.lastValidCompletion);
           if (
-            new Date(result.lastValidCompletion) <=
-            new Date(new Date().toDateString())
+            !result.lastValidCompletion.todayCompleted &&
+            !result.lastValidCompletion.weeklyStreakCompleted
           ) {
-            console.log("EARLEIR THAN TODAY");
+            document.body.appendChild(app);
+            ReactDOM.render(<Main data={result.lastValidCompletion} />, app);
           } else {
-            console.log(
-              new Date(result.lastValidCompletion) <
-                new Date(new Date().toDateString())
-            );
+            return;
           }
         });
       }
@@ -83,7 +62,6 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
   if (request.tab === "https://www.codecademy.com/learn") {
     // Use to convert .getDay's return number to match the index in listed days (everything's off by 1 since .getDay() has Sunday as 0)
-    console.log("AT CODECADEMY");
     const indexToDays = { 0: 1, 1: 2, 2: 3, 3: 4, 4: 5, 5: 6, 6: 0 };
     const weekEl = document.getElementById("target-week");
     const dayEls = [...weekEl.children];
@@ -103,6 +81,7 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
 
     const stats = {
       daysCompleted: daysCompleted,
+      // this should just be a date and checked in the listener
       todayCompleted: checkTodaysCompletion(),
       weeklyStreakCompleted: weeklyStreakCompleted,
     };
@@ -115,6 +94,4 @@ chrome.runtime.onMessage.addListener(function (request, sender, sendResponse) {
       );
     });
   }
-  console.log(request.greeting, "GREETING");
-  console.log(request, "REQUESRT");
 });
